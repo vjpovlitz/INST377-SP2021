@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <H1>
+        Is this server live
+    </H1>
+    <form class="userform">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name">
+        <button type="submit">Submit Form</button>
+    </form>
+    
+    <script>
+
+        //src="script.js"
+        const food = [];
+        fetch('/api')
+            .then(blob => blob.json())
+            .then(data => food.push(...data));
+
+        function findMatches(wordToMatch, food) {
+            return food.filter(any => {
+                const regex = new RegExp(wordToMatch, 'gi');   
+                return any.name.match(regex)
+            });
+        }
+      
+        
+
+
+    </script>
+    Put your app here
+</body>
+</html>

@@ -1,0 +1,43 @@
+const restaurants = [];
+fetch('/api')
+    .then(blob => blob.json())
+    .then(data => restaurants.push(...data));
+
+function findMatches(wordToMatch, restaurants) {
+    return restaurants.filter(any => {
+        const regex = new RegExp(wordToMatch, 'gi');   
+        return any.name.match(regex)
+    });
+}
+
+
+
+
+
+//console.log(endpoint);
+/*
+async function windowsActions() {
+    console.log('window loaded');
+    const form = document.querySelector('.userform');
+    const search = document.querySelector('#name');
+
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        console.log('submit fired');
+
+        const request = await fetch('/api', {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({data: search.value})
+        });
+        console.log(request)
+    });
+
+    search.addEventListener('input', (event) => {
+        console.log('input', event.target.value);
+        });
+    }
+
+    window.onload = windowsActions; */
