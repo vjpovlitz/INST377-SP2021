@@ -5,7 +5,33 @@ async function windowsActions() {
         return any.name.match(regex)
     });
   }
+  
 
+
+  function displayMatches() {
+    const matchArray = findMatches(this.value, restaurants);
+    const html = matchArray.map(place => {
+    const regex = new RegExp(this.value, 'gi');
+    const name = place.name.replace(regex, `<span class="hl">${this.value}</span>`);
+    const type = place.category.replace(regex, `<span class="hl">${this.value}</span>`);
+    const address = place.address_line_1.replace(regex, `<span class="hl">${this.value}</span>`);
+    const city = place.city.replace(regex, `<span class="hl">${this.value}</span>`);
+    const zip = place.zip.replace(regex, `<span class="hl">${this.value}</span>`);
+
+    return `
+        <ul>
+            <li>-
+                <span class="name">${name}</span>
+                <span class="name">${type}</span>
+                <span class="name">${address}</span>
+                <span class="name">${city}</span>
+                <span class="name">${zip}</span>
+            </li>
+        </ul>
+    `;
+    }).join('');
+    results.innerHTML = html;
+}
   console.log('window loaded');
   const form = document.querySelector('.userform');
   const search = document.querySelector('#search_value');

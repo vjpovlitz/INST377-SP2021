@@ -41,3 +41,29 @@ async function windowsActions() {
     }
 
     window.onload = windowsActions; */
+
+//  MOST RECENT ADDED FILE
+    /*const food = [];
+fetch('/api')
+    .then(blob => blob.json())
+    .then(data => food.push(...data));
+
+function findMatches(wordToMatch, food) {
+    return food.filter(any => {
+        const regex = new RegExp(wordToMatch, 'gi');   
+        return any.name.match(regex)
+    });
+  }
+
+async function windowsActions() {
+  
+  console.log('window loaded');
+  const form = document.querySelector('.userform');
+  const search = document.querySelector('#name');
+
+  search.addEventListener('input', (event) => {
+    console.log('input', event.target.value);
+  });
+}
+
+window.onload = windowsActions;
